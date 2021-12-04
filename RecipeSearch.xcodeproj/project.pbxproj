@@ -18,6 +18,8 @@
 		E3C1FB40275BCF4700F21E99 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C1FB3F275BCF4700F21E99 /* DetailsViewController.swift */; };
 		E3C1FB46275BD31500F21E99 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C1FB44275BD31500F21E99 /* FilterCell.swift */; };
 		E3C1FB47275BD31600F21E99 /* FilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3C1FB45275BD31500F21E99 /* FilterCell.xib */; };
+		E3C1FB50275BDD6800F21E99 /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C1FB4E275BDD6800F21E99 /* RecipeCell.swift */; };
+		E3C1FB51275BDD6800F21E99 /* RecipeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3C1FB4F275BDD6800F21E99 /* RecipeCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		E3C1FB3F275BCF4700F21E99 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		E3C1FB44275BD31500F21E99 /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
 		E3C1FB45275BD31500F21E99 /* FilterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCell.xib; sourceTree = "<group>"; };
+		E3C1FB4E275BDD6800F21E99 /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
+		E3C1FB4F275BDD6800F21E99 /* RecipeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,16 +109,12 @@
 		E3960B9F27599FB900BFF33E /* RecipeSearch */ = {
 			isa = PBXGroup;
 			children = (
-				E3960BA027599FB900BFF33E /* AppDelegate.swift */,
-				E3960BA227599FB900BFF33E /* SceneDelegate.swift */,
-				E3960BA427599FB900BFF33E /* SearchViewController.swift */,
-				E3960BA627599FB900BFF33E /* Main.storyboard */,
+				E3C1FB58275BDDA600F21E99 /* Application */,
+				E3C1FB57275BDD9700F21E99 /* Controller */,
+				E3C1FB56275BDD8A00F21E99 /* View */,
+				E3C1FB55275BDD7F00F21E99 /* Model */,
 				E3960BA927599FBA00BFF33E /* Assets.xcassets */,
-				E3960BAB27599FBA00BFF33E /* LaunchScreen.storyboard */,
 				E3960BAE27599FBA00BFF33E /* Info.plist */,
-				E3C1FB3F275BCF4700F21E99 /* DetailsViewController.swift */,
-				E3C1FB44275BD31500F21E99 /* FilterCell.swift */,
-				E3C1FB45275BD31500F21E99 /* FilterCell.xib */,
 			);
 			path = RecipeSearch;
 			sourceTree = "<group>";
@@ -135,6 +135,68 @@
 				E3960BC427599FBA00BFF33E /* Info.plist */,
 			);
 			path = RecipeSearchUITests;
+			sourceTree = "<group>";
+		};
+		E3C1FB55275BDD7F00F21E99 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E3C1FB56275BDD8A00F21E99 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E3C1FB59275BDDE400F21E99 /* Shared */,
+				E3960BA627599FB900BFF33E /* Main.storyboard */,
+				E3960BAB27599FBA00BFF33E /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E3C1FB57275BDD9700F21E99 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E3960BA427599FB900BFF33E /* SearchViewController.swift */,
+				E3C1FB3F275BCF4700F21E99 /* DetailsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E3C1FB58275BDDA600F21E99 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				E3960BA027599FB900BFF33E /* AppDelegate.swift */,
+				E3960BA227599FB900BFF33E /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		E3C1FB59275BDDE400F21E99 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				E3C1FB5A275BDDFF00F21E99 /* FilterCell */,
+				E3C1FB5E275BDE2800F21E99 /* RecipeCell */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		E3C1FB5A275BDDFF00F21E99 /* FilterCell */ = {
+			isa = PBXGroup;
+			children = (
+				E3C1FB44275BD31500F21E99 /* FilterCell.swift */,
+				E3C1FB45275BD31500F21E99 /* FilterCell.xib */,
+			);
+			path = FilterCell;
+			sourceTree = "<group>";
+		};
+		E3C1FB5E275BDE2800F21E99 /* RecipeCell */ = {
+			isa = PBXGroup;
+			children = (
+				E3C1FB4E275BDD6800F21E99 /* RecipeCell.swift */,
+				E3C1FB4F275BDD6800F21E99 /* RecipeCell.xib */,
+			);
+			path = RecipeCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +304,7 @@
 			files = (
 				E3960BAD27599FBA00BFF33E /* LaunchScreen.storyboard in Resources */,
 				E3C1FB47275BD31600F21E99 /* FilterCell.xib in Resources */,
+				E3C1FB51275BDD6800F21E99 /* RecipeCell.xib in Resources */,
 				E3960BAA27599FBA00BFF33E /* Assets.xcassets in Resources */,
 				E3960BA827599FB900BFF33E /* Main.storyboard in Resources */,
 			);
@@ -271,6 +334,7 @@
 				E3960BA527599FB900BFF33E /* SearchViewController.swift in Sources */,
 				E3960BA127599FB900BFF33E /* AppDelegate.swift in Sources */,
 				E3960BA327599FB900BFF33E /* SceneDelegate.swift in Sources */,
+				E3C1FB50275BDD6800F21E99 /* RecipeCell.swift in Sources */,
 				E3C1FB40275BCF4700F21E99 /* DetailsViewController.swift in Sources */,
 				E3C1FB46275BD31500F21E99 /* FilterCell.swift in Sources */,
 			);

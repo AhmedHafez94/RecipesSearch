@@ -22,9 +22,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="176" height="85"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5R2-FJ-MhW">
-                                <rect key="frame" x="10" y="24.5" width="156" height="36"/>
+                                <rect key="frame" x="10" y="30.5" width="156" height="24"/>
                                 <color key="backgroundColor" systemColor="systemTealColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -47,6 +47,9 @@
                 <constraint firstItem="kDv-CO-UJ4" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="t9u-gD-9xj"/>
             </constraints>
             <size key="customSize" width="176" height="85"/>
+            <connections>
+                <outlet property="filterLabel" destination="5R2-FJ-MhW" id="S0s-1U-yLg"/>
+            </connections>
             <point key="canvasLocation" x="94.20289855072464" y="79.352678571428569"/>
         </collectionViewCell>
     </objects>

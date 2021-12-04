@@ -9,8 +9,8 @@ import UIKit
 
 class SearchViewController: UIViewController {
   
+    var filtersArray = ["All", "Low Sugar", "Keto","Vegan"]
     
-
     @IBOutlet weak var recipesTableView: UITableView!
     
     @IBOutlet weak var filtersCollectionView: UICollectionView!
@@ -24,6 +24,7 @@ class SearchViewController: UIViewController {
         
         recipesTableView.dataSource = self
         recipesTableView.delegate = self
+        recipesTableView.register(UINib(nibName: "RecipeCell", bundle: nil), forCellReuseIdentifier: "RecipeCell")
     }
 
 
@@ -34,12 +35,11 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = "cell number \(indexPath.row)"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell", for: indexPath) as! RecipeCell
         
         return cell
     }
@@ -56,11 +56,12 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
 extension SearchViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return filtersArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FilterCell", for: indexPath) as! FilterCell
+        cell.filterLabel.text = filtersArray[indexPath.row]
         return cell
     }
 }

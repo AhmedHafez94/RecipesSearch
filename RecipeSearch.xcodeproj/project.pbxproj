@@ -9,12 +9,15 @@
 /* Begin PBXBuildFile section */
 		E3960BA127599FB900BFF33E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3960BA027599FB900BFF33E /* AppDelegate.swift */; };
 		E3960BA327599FB900BFF33E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3960BA227599FB900BFF33E /* SceneDelegate.swift */; };
-		E3960BA527599FB900BFF33E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3960BA427599FB900BFF33E /* ViewController.swift */; };
+		E3960BA527599FB900BFF33E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3960BA427599FB900BFF33E /* SearchViewController.swift */; };
 		E3960BA827599FB900BFF33E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3960BA627599FB900BFF33E /* Main.storyboard */; };
 		E3960BAA27599FBA00BFF33E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3960BA927599FBA00BFF33E /* Assets.xcassets */; };
 		E3960BAD27599FBA00BFF33E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3960BAB27599FBA00BFF33E /* LaunchScreen.storyboard */; };
 		E3960BB827599FBA00BFF33E /* RecipeSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3960BB727599FBA00BFF33E /* RecipeSearchTests.swift */; };
 		E3960BC327599FBA00BFF33E /* RecipeSearchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3960BC227599FBA00BFF33E /* RecipeSearchUITests.swift */; };
+		E3C1FB40275BCF4700F21E99 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C1FB3F275BCF4700F21E99 /* DetailsViewController.swift */; };
+		E3C1FB46275BD31500F21E99 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C1FB44275BD31500F21E99 /* FilterCell.swift */; };
+		E3C1FB47275BD31600F21E99 /* FilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3C1FB45275BD31500F21E99 /* FilterCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +41,7 @@
 		E3960B9D27599FB900BFF33E /* RecipeSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipeSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3960BA027599FB900BFF33E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3960BA227599FB900BFF33E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E3960BA427599FB900BFF33E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E3960BA427599FB900BFF33E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		E3960BA727599FB900BFF33E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E3960BA927599FBA00BFF33E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E3960BAC27599FBA00BFF33E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +52,9 @@
 		E3960BBE27599FBA00BFF33E /* RecipeSearchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipeSearchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3960BC227599FBA00BFF33E /* RecipeSearchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSearchUITests.swift; sourceTree = "<group>"; };
 		E3960BC427599FBA00BFF33E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E3C1FB3F275BCF4700F21E99 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		E3C1FB44275BD31500F21E99 /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
+		E3C1FB45275BD31500F21E99 /* FilterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,11 +107,14 @@
 			children = (
 				E3960BA027599FB900BFF33E /* AppDelegate.swift */,
 				E3960BA227599FB900BFF33E /* SceneDelegate.swift */,
-				E3960BA427599FB900BFF33E /* ViewController.swift */,
+				E3960BA427599FB900BFF33E /* SearchViewController.swift */,
 				E3960BA627599FB900BFF33E /* Main.storyboard */,
 				E3960BA927599FBA00BFF33E /* Assets.xcassets */,
 				E3960BAB27599FBA00BFF33E /* LaunchScreen.storyboard */,
 				E3960BAE27599FBA00BFF33E /* Info.plist */,
+				E3C1FB3F275BCF4700F21E99 /* DetailsViewController.swift */,
+				E3C1FB44275BD31500F21E99 /* FilterCell.swift */,
+				E3C1FB45275BD31500F21E99 /* FilterCell.xib */,
 			);
 			path = RecipeSearch;
 			sourceTree = "<group>";
@@ -232,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3960BAD27599FBA00BFF33E /* LaunchScreen.storyboard in Resources */,
+				E3C1FB47275BD31600F21E99 /* FilterCell.xib in Resources */,
 				E3960BAA27599FBA00BFF33E /* Assets.xcassets in Resources */,
 				E3960BA827599FB900BFF33E /* Main.storyboard in Resources */,
 			);
@@ -258,9 +268,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3960BA527599FB900BFF33E /* ViewController.swift in Sources */,
+				E3960BA527599FB900BFF33E /* SearchViewController.swift in Sources */,
 				E3960BA127599FB900BFF33E /* AppDelegate.swift in Sources */,
 				E3960BA327599FB900BFF33E /* SceneDelegate.swift in Sources */,
+				E3C1FB40275BCF4700F21E99 /* DetailsViewController.swift in Sources */,
+				E3C1FB46275BD31500F21E99 /* FilterCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,6 +451,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C47M6LUM8V;
 				INFOPLIST_FILE = RecipeSearch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -458,6 +471,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C47M6LUM8V;
 				INFOPLIST_FILE = RecipeSearch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

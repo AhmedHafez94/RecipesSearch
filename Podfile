@@ -16,6 +16,7 @@ target 'RecipeSearch' do
     # Pods for testing
   end
 pod 'Alamofire', '~> 5.4'
+pod 'SDWebImage', '~> 5.0'
 
 
 end

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class RecipeCell: UITableViewCell {
 
@@ -21,7 +22,16 @@ class RecipeCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
+    }
+    
+    func configure(recipe: Recipe) {
+        recipeImageView.sd_setImage(with: URL(string: recipe.image), placeholderImage: UIImage(named: "loading"))
         
+        recipeTitleLabel.text = recipe.label
+        recipeSource.text = recipe.source
+        let healthLabels = recipe.healthLabels
+        let healthLabeString = healthLabels.joined(separator: ",")
+        recipeHealthLabel.text = healthLabeString
     }
     
 }

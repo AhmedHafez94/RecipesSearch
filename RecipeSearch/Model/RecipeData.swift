@@ -28,6 +28,8 @@ struct Recipe: Codable {
     var image: String
     var source: String
     var url: String
+    var healthLabels: [String]
+    var ingredientLines: [String]
     
     
 }

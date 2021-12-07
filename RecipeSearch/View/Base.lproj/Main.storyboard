@@ -18,12 +18,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" placeholder="Search.." translatesAutoresizingMaskIntoConstraints="NO" id="loR-n2-Tl7">
+                            <searchBar contentMode="redraw" placeholder="Search.." showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="loR-n2-Tl7">
                                 <rect key="frame" x="10" y="98" width="394" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="XcM-Ld-SD9"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Yl7-pp-Qde">
                                 <rect key="frame" x="10" y="158" width="394" height="50"/>
@@ -71,6 +75,7 @@
                     <navigationItem key="navigationItem" title="Recipes Search" largeTitleDisplayMode="always" id="Cpd-pL-0sm"/>
                     <connections>
                         <outlet property="filtersCollectionView" destination="Yl7-pp-Qde" id="6jo-ba-Zx7"/>
+                        <outlet property="recipesSearchBar" destination="loR-n2-Tl7" id="Nf2-EZ-cWS"/>
                         <outlet property="recipesTableView" destination="5nf-7K-tzw" id="FBx-7i-ul0"/>
                         <segue destination="YGD-nT-7dw" kind="show" identifier="goToRecipeDetail" id="mgf-wa-T3x"/>
                     </connections>

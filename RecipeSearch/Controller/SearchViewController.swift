@@ -24,6 +24,20 @@ class SearchViewController: UIViewController {
         setupCollections()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destVC = segue.destination as! DetailsViewController
+        if let indexPath = recipesTableView.indexPathForSelectedRow{
+               let selectedRow = indexPath.row
+            let destVc = segue.destination as! DetailsViewController
+            destVC.recipeImageUrl = recipes[selectedRow].image
+            destVC.recipeTitle = recipes[selectedRow].label
+            destVC.recipeIngredients = recipes[selectedRow].ingredientLines
+            destVC.recipeUrl = recipes[selectedRow].url
+            
+           }
+        
+    }
+    
     func setupCollections() {
         
         filtersCollectionView.dataSource = self
@@ -34,6 +48,7 @@ class SearchViewController: UIViewController {
         recipesTableView.delegate = self
         recipesTableView.register(UINib(nibName: "RecipeCell", bundle: nil), forCellReuseIdentifier: "RecipeCell")
     }
+  
     
     func performSearch() {
 //        let url = "https://api.edamam.com/search?q=chicken&app_id=bb8ee61b&app_key=210feba02847a53b9f2c0d7ca4c9dff8"
@@ -88,7 +103,7 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        performSegue(withIdentifier: "goToRecipeDetail", sender: self)
+        performSegue(withIdentifier: "goToRecipeDetail", sender: self)
     }
     
     
@@ -112,13 +127,14 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
         SearchModel.filterIndex = indexPath.row
     }
 }
-
+//MARK:-> search bar methods
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let text = searchBar.text!
         SearchModel.searchWord = text
         print("text from search bar \(text)")
         performSearch()
+        recipesSearchBar.endEditing(true)
 
     }
 }

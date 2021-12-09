@@ -6,24 +6,50 @@
 //
 
 import UIKit
+import SDWebImage
 
 class DetailsViewController: UIViewController {
-
+    
+    var recipeImageUrl = ""
+    var recipeTitle = ""
+    var recipeIngredients: [String] = []
+    var recipeUrl = ""
+    
+    @IBOutlet weak var recipeImageView: UIImageView!
+    
+    
+    @IBOutlet weak var ingredientsTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = recipeTitle
+        ingredientsTableView.dataSource = self
+        recipeImageView.sd_setImage(with: URL(string: recipeImageUrl), placeholderImage: UIImage(named: "loading"))
 
-        // Do any additional setup after loading the view.
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func recipeWebsiteButtonPressed(_ sender: UIButton) {
+        
+        
     }
-    */
 
+}
+
+extension DetailsViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return recipeIngredients.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.selectionStyle = .none
+        cell.textLabel?.numberOfLines = 0
+        cell.textLabel?.text = recipeIngredients[indexPath.row]
+        
+        return cell
+    }
+    
+    
 }

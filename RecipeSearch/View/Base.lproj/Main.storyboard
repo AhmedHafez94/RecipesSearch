@@ -92,7 +92,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gearshape.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="iAV-AL-qNF">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gearshape.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="iAV-AL-qNF">
                                 <rect key="frame" x="0.0" y="88" width="414" height="199.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="icw-N5-9gU"/>
@@ -113,15 +113,26 @@
                                         <integer key="value" value="6"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="recipeWebsiteButtonPressed:" destination="YGD-nT-7dw" eventType="touchUpInside" id="EKe-iD-JY0"/>
+                                </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GG2-bs-VUg">
+                                <rect key="frame" x="0.0" y="288" width="414" height="514"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GRh-Ui-RsQ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="GRh-Ui-RsQ" firstAttribute="trailing" secondItem="pct-5i-Yxn" secondAttribute="trailing" constant="10" id="1bd-z0-gYe"/>
+                            <constraint firstItem="GRh-Ui-RsQ" firstAttribute="trailing" secondItem="GG2-bs-VUg" secondAttribute="trailing" id="3Nn-iR-P8h"/>
                             <constraint firstItem="iAV-AL-qNF" firstAttribute="leading" secondItem="GRh-Ui-RsQ" secondAttribute="leading" id="6h1-7J-yOA"/>
+                            <constraint firstItem="GG2-bs-VUg" firstAttribute="top" secondItem="iAV-AL-qNF" secondAttribute="bottom" id="A3R-Ge-EXa"/>
+                            <constraint firstItem="GG2-bs-VUg" firstAttribute="leading" secondItem="GRh-Ui-RsQ" secondAttribute="leading" id="DQr-2L-lic"/>
                             <constraint firstItem="GRh-Ui-RsQ" firstAttribute="trailing" secondItem="iAV-AL-qNF" secondAttribute="trailing" id="HJy-p0-vM4"/>
                             <constraint firstItem="iAV-AL-qNF" firstAttribute="top" secondItem="GRh-Ui-RsQ" secondAttribute="top" id="RYd-Xn-Pzs"/>
+                            <constraint firstItem="pct-5i-Yxn" firstAttribute="top" secondItem="GG2-bs-VUg" secondAttribute="bottom" id="eHX-EA-lqZ"/>
                             <constraint firstItem="pct-5i-Yxn" firstAttribute="leading" secondItem="GRh-Ui-RsQ" secondAttribute="leading" constant="10" id="rlt-hc-edF"/>
                             <constraint firstItem="GRh-Ui-RsQ" firstAttribute="bottom" secondItem="pct-5i-Yxn" secondAttribute="bottom" constant="10" id="u2I-8b-bD9"/>
                         </constraints>
@@ -129,6 +140,10 @@
                     <navigationItem key="navigationItem" title="Recipes Detail" id="Dlj-Ob-mn2">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="square.and.arrow.up" catalog="system" id="Saf-8d-SYu"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="ingredientsTableView" destination="GG2-bs-VUg" id="Kbm-6u-rdM"/>
+                        <outlet property="recipeImageView" destination="iAV-AL-qNF" id="oFa-n5-0Gx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gaj-Tm-pDJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

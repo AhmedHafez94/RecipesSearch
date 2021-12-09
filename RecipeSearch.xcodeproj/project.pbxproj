@@ -12,6 +12,7 @@
 		927722BA1F986C02966733B6 /* Pods_RecipeSearch_RecipeSearchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF5A54C0CA7500633638DE88 /* Pods_RecipeSearch_RecipeSearchUITests.framework */; };
 		E3344706275F4F9A0039CE45 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3344705275F4F9A0039CE45 /* SearchModel.swift */; };
 		E369A483275C24EA00F44C5E /* RecipeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E369A482275C24EA00F44C5E /* RecipeData.swift */; };
+		E37D5BE72762582700836879 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37D5BE62762582700836879 /* NetworkManager.swift */; };
 		E3960BA127599FB900BFF33E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3960BA027599FB900BFF33E /* AppDelegate.swift */; };
 		E3960BA327599FB900BFF33E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3960BA227599FB900BFF33E /* SceneDelegate.swift */; };
 		E3960BA527599FB900BFF33E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3960BA427599FB900BFF33E /* SearchViewController.swift */; };
@@ -56,6 +57,7 @@
 		D56E02D16BFFDDB8F9ECCBC5 /* Pods-RecipeSearch-RecipeSearchUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipeSearch-RecipeSearchUITests.release.xcconfig"; path = "Target Support Files/Pods-RecipeSearch-RecipeSearchUITests/Pods-RecipeSearch-RecipeSearchUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E3344705275F4F9A0039CE45 /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
 		E369A482275C24EA00F44C5E /* RecipeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeData.swift; sourceTree = "<group>"; };
+		E37D5BE62762582700836879 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		E3960B9D27599FB900BFF33E /* RecipeSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipeSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3960BA027599FB900BFF33E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3960BA227599FB900BFF33E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 			children = (
 				E369A482275C24EA00F44C5E /* RecipeData.swift */,
 				E3344705275F4F9A0039CE45 /* SearchModel.swift */,
+				E37D5BE62762582700836879 /* NetworkManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E37D5BE72762582700836879 /* NetworkManager.swift in Sources */,
 				E3960BA527599FB900BFF33E /* SearchViewController.swift in Sources */,
 				E3960BA127599FB900BFF33E /* AppDelegate.swift in Sources */,
 				E369A483275C24EA00F44C5E /* RecipeData.swift in Sources */,

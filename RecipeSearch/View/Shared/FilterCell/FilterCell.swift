@@ -14,5 +14,10 @@ class FilterCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    override var isSelected: Bool {
+        didSet {
+            filterLabel.backgroundColor = isSelected ? .gray : .white
+        }
+    }
 
 }

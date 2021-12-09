@@ -9,7 +9,7 @@ import UIKit
 import Alamofire
 
 class SearchViewController: UIViewController {
-  
+    var networkManager = NetworkManager()
     var filtersArray = ["All", "Low Sugar", "Keto","Vegan"]
     let healthFilters = ["", "&health=low-sugar", "&health=keto-friendly", "&health=vegan"]
     var recipes: [Recipe] = []
@@ -22,6 +22,7 @@ class SearchViewController: UIViewController {
         print("hello world 101")
         recipesSearchBar.delegate = self
         setupCollections()
+        networkManager.delegate = self
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -29,14 +30,16 @@ class SearchViewController: UIViewController {
         if let indexPath = recipesTableView.indexPathForSelectedRow{
                let selectedRow = indexPath.row
             let destVc = segue.destination as! DetailsViewController
-            destVC.recipeImageUrl = recipes[selectedRow].image
-            destVC.recipeTitle = recipes[selectedRow].label
-            destVC.recipeIngredients = recipes[selectedRow].ingredientLines
-            destVC.recipeUrl = recipes[selectedRow].url
+            destVC.recipeImageUrl = SearchModel.recipes[selectedRow].image
+            destVC.recipeTitle = SearchModel.recipes[selectedRow].label
+            destVC.recipeIngredients = SearchModel.recipes[selectedRow].ingredientLines
+            destVC.recipeUrl = SearchModel.recipes[selectedRow].url
             
            }
         
     }
+    
+    
     
     func setupCollections() {
         
@@ -48,43 +51,6 @@ class SearchViewController: UIViewController {
         recipesTableView.delegate = self
         recipesTableView.register(UINib(nibName: "RecipeCell", bundle: nil), forCellReuseIdentifier: "RecipeCell")
     }
-  
-    
-    func performSearch() {
-//        let url = "https://api.edamam.com/search?q=chicken&app_id=bb8ee61b&app_key=210feba02847a53b9f2c0d7ca4c9dff8"
-        
-        let url = "https://api.edamam.com/search?q=\(SearchModel.searchWord)&app_id=bb8ee61b&app_key=210feba02847a53b9f2c0d7ca4c9dff8\(healthFilters[SearchModel.filterIndex])"
-        print("url will be printed \(url)")
-        let request = AF.request(url)
-//        request.responseJSON { (response) in
-//            guard response.error == nil else {
-//                // handle error
-//                return
-//            }
-//            print("response data \(response.data)")
-//            let decoder = JSONDecoder()
-//            let data = try! decoder.decode(RecipeData.self, from: response.data!)
-//            print("data will be printed \(data)")
-//        }
-        request.responseDecodable(of: RecipeData.self) { (response) in
-            if let error = response.error {
-                print("error happened while fetching recipes \(error)")
-                return
-            }
-            if let data = response.value {
-                print("data will be printed \(data)")
-                let hits = data.hits
-                for hit in hits {
-                    let recipe = hit.recipe
-                    self.recipes.append(recipe)
-                }
-                self.recipesTableView.reloadData()
-            }
-            
-        }
-      
-    }
-
 
 }
 
@@ -93,17 +59,28 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recipes.count
+        return SearchModel.recipes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell", for: indexPath) as! RecipeCell
-        cell.configure(recipe: recipes[indexPath.row])
+        cell.configure(recipe: SearchModel.recipes[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "goToRecipeDetail", sender: self)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == SearchModel.recipes.count - 1 {
+            if SearchModel.hasMore {
+                SearchModel.from += 10
+                print("will display cell")
+                networkManager.performSearch()
+            }
+            
+        }
     }
     
     
@@ -124,7 +101,9 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("index path row \(indexPath.row)")
+        SearchModel.makeNewSearchModel()
         SearchModel.filterIndex = indexPath.row
+        networkManager.performSearch()
     }
 }
 //MARK:-> search bar methods
@@ -133,9 +112,19 @@ extension SearchViewController: UISearchBarDelegate {
         let text = searchBar.text!
         SearchModel.searchWord = text
         print("text from search bar \(text)")
-        performSearch()
+        networkManager.performSearch()
         recipesSearchBar.endEditing(true)
 
     }
+}
+
+//MARK:-> NetworkMangerDelegateMethods
+
+extension SearchViewController: NetworkManagerProtocol {
+    func didEndFetchingRecipes() {
+        recipesTableView.reloadData()
+    }
+    
+    
 }
 

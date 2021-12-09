@@ -12,6 +12,20 @@ struct SearchModel {
     static var from = 0
     static var filterIndex = 0
     static var filterWord = ""
+    static var recipes: [Recipe] = []
+    static var hasMore = false
+    static var isFetchingRecipes = true
+    
+    
+    static func makeNewSearchModel() {
+//        SearchModel.searchWord = ""
+        SearchModel.from = 0
+        SearchModel.filterIndex = 0
+        SearchModel.filterWord = ""
+        SearchModel.recipes = []
+        SearchModel.hasMore = false
+        SearchModel.isFetchingRecipes = true
+    }
     
 }
 

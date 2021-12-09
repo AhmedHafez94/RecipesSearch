@@ -30,7 +30,7 @@ class SearchViewController: UIViewController {
         let destVC = segue.destination as! DetailsViewController
         if let indexPath = recipesTableView.indexPathForSelectedRow{
                let selectedRow = indexPath.row
-            let destVc = segue.destination as! DetailsViewController
+            
             destVC.recipeImageUrl = SearchModel.recipes[selectedRow].image
             destVC.recipeTitle = SearchModel.recipes[selectedRow].label
             destVC.recipeIngredients = SearchModel.recipes[selectedRow].ingredientLines
@@ -52,6 +52,8 @@ class SearchViewController: UIViewController {
         recipesTableView.delegate = self
         recipesTableView.register(UINib(nibName: "RecipeCell", bundle: nil), forCellReuseIdentifier: "RecipeCell")
     }
+    
+    
 
 }
 
@@ -131,27 +133,28 @@ extension SearchViewController: UISearchBarDelegate, UITextFieldDelegate {
         print("text from search bar \(text)")
         networkManager.performSearch()
         recipesSearchBar.endEditing(true)
+        searchBar.endEditing(true)
 
     }
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-
-        if range.location == 0 && string == " " { // prevent space on first character
-            return false
-        }
-
-        if textField.text?.last == " " && string == " " { // allowed only single space
-            return false
-        }
-
-        if string == " " { return true } // now allowing space between name
-
-        if string.rangeOfCharacter(from: CharacterSet.letters.inverted) != nil {
-            return false
-        }
-
-        return true
-    }
+//    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+//        if range.location == 0 && text == " " { // prevent space on first character
+//            return false
+//        }
+//
+//        if text.last == " " && text == " " { // allowed only single space
+//            return false
+//        }
+//
+////        if text == " " { return true } // now allowing space between name
+//
+//        if text.rangeOfCharacter(from: CharacterSet.letters.inverted) != nil {
+//            return false
+//        }
+//
+//        return true
+//    }
+    
 }
 
 //MARK:-> NetworkMangerDelegateMethods

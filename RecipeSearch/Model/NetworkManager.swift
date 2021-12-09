@@ -20,7 +20,7 @@ class NetworkManager {
     
     func performSearch() {
         SearchModel.isFetchingRecipes = true
-        var recipes: [Recipe] = []
+
         let url = "https://api.edamam.com/search?q=\(SearchModel.searchWord)&app_id=bb8ee61b&app_key=210feba02847a53b9f2c0d7ca4c9dff8\(healthFilters[SearchModel.filterIndex])&from=\(SearchModel.from)"
         print("url will be printed \(url)")
         let request = AF.request(url)

@@ -20,7 +20,7 @@ struct SearchModel {
     static func makeNewSearchModel() {
 //        SearchModel.searchWord = ""
         SearchModel.from = 0
-        SearchModel.filterIndex = 0
+//        SearchModel.filterIndex = 0
         SearchModel.filterWord = ""
         SearchModel.recipes = []
         SearchModel.hasMore = false

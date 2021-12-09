@@ -21,6 +21,7 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         print("hello world 101")
         recipesSearchBar.delegate = self
+       
         setupCollections()
         networkManager.delegate = self
     }
@@ -59,13 +60,28 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return SearchModel.recipes.count
+        switch SearchModel.recipes.count {
+        case 0:
+            return 1
+        default:
+            return SearchModel.recipes.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell", for: indexPath) as! RecipeCell
-        cell.configure(recipe: SearchModel.recipes[indexPath.row])
-        return cell
+        
+        switch SearchModel.recipes.count {
+        case 0:
+            let cell = UITableViewCell()
+            cell.textLabel?.text = "Nothing to display "
+            cell.textLabel?.font = UIFont.systemFont(ofSize: 30)
+            return cell
+        default:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell", for: indexPath) as! RecipeCell
+            cell.configure(recipe: SearchModel.recipes[indexPath.row])
+            return cell
+        }
+       
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -107,14 +123,34 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
     }
 }
 //MARK:-> search bar methods
-extension SearchViewController: UISearchBarDelegate {
+extension SearchViewController: UISearchBarDelegate, UITextFieldDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        SearchModel.makeNewSearchModel()
         let text = searchBar.text!
         SearchModel.searchWord = text
         print("text from search bar \(text)")
         networkManager.performSearch()
         recipesSearchBar.endEditing(true)
 
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+
+        if range.location == 0 && string == " " { // prevent space on first character
+            return false
+        }
+
+        if textField.text?.last == " " && string == " " { // allowed only single space
+            return false
+        }
+
+        if string == " " { return true } // now allowing space between name
+
+        if string.rangeOfCharacter(from: CharacterSet.letters.inverted) != nil {
+            return false
+        }
+
+        return true
     }
 }
 

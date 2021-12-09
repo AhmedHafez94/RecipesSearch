@@ -138,7 +138,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Recipes Detail" id="Dlj-Ob-mn2">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="square.and.arrow.up" catalog="system" id="Saf-8d-SYu"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="square.and.arrow.up" catalog="system" id="Saf-8d-SYu">
+                            <connections>
+                                <action selector="shareButtonPressed:" destination="YGD-nT-7dw" id="qle-FQ-fTQ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="ingredientsTableView" destination="GG2-bs-VUg" id="Kbm-6u-rdM"/>
